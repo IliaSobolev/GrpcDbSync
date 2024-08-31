@@ -38,7 +38,7 @@ func (s *ServerApi) Update(ctx context.Context, req *dbSync.Post) (*dbSync.Null,
 }
 
 func (s *ServerApi) Delete(ctx context.Context, req *dbSync.PostId) (*dbSync.Null, error) {
-	slog.Info("Updating post with post_id: ", req.GetId())
+	slog.Info("Deliting post with post_id: ", req.GetId())
 	_, err := s.repo.Delete(ctx, req)
 	if err != nil {
 		slog.Warn(err.Error())
