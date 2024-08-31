@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package DbSync;
+
+option go_package = "grpcDbSync.DbSyncPg.v1;dbSync";
+
+service DbSync{
+  rpc Create(Post) returns (Null);
+  rpc Update(Post) returns (Null);
+  rpc Delete(PostId) returns (Null);
+  rpc Get(PostId) returns (Post);
+}
+
+message Post{
+  PostId post_id = 1;
+  string post_name = 2;
+  int64 likes = 3;
+}
+
+message PostId{
+    int64 id = 1;
+}
+
+message Null{}
